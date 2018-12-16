@@ -19,6 +19,9 @@ public class Boletin12_1 {
     public static void main(String[] args) {
        Coche x = new Coche("545668552",new GregorianCalendar());
         System.out.println(x.toString());
+        
+        
+        System.out.println((20000000%(60*60*1000))/(60*1000));
        
     }
     

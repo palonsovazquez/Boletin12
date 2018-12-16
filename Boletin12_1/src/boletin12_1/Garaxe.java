@@ -129,5 +129,12 @@ public class Garaxe {
         }
 return contador;
     }
+public String factura(int plaza,Double cartosRecividos,Double CartosDevoltos){
+String dev;
+   dev = "\nFactura\n"
+           + "*******************************\n"+
+           getPlaza(plaza).toString()+ "\nCartos recividos = "+ cartosRecividos + "\nCartos devoltos = "+ CartosDevoltos+ "\n Gracias por usar o noso aparcadoiro\n";
 
+return dev;
+}
 }

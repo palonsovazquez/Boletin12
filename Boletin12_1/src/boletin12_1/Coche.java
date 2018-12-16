@@ -47,6 +47,34 @@ public class Coche {
         this.gcTiempoFinEstacionamiento = gcTiempoFinEstacionamiento;
     }
 
+    public Double calcularPrezo(){
+    Double dev = null;
+    long tiempo, horas, minutos,segundos;
+    if(this.gcTiempoFinEstacionamiento != null && this.gcTiempoInicioEstacionamiento != null){
+    tiempo =this.gcTiempoFinEstacionamiento.getTimeInMillis()- this.gcTiempoInicioEstacionamiento.getTimeInMillis();
+    horas = tiempo/(60*60*1000);
+    minutos = (tiempo%(60*60*1000))/(1000*60);
+    segundos = (tiempo%(60*60*1000))%(1000*60)/1000;
+    
+    if(horas < 3){
+    dev = 1.5;
+    
+    }else{
+    dev = 1.5+(horas -3)*0.2;
+    
+    }
+    
+    }
+    
+    
+    
+    return dev;
+    }
+    
+    
+    
+    
+    
     @Override
     public String toString() {
         String texto = "";
@@ -54,8 +82,11 @@ public class Coche {
         return "Coche\n********************"
                 + "\nmatricula: " + matricula +
                 "\nHora del principio del estacionamiento: " + Peticiones.formateadorFechas(gcTiempoInicioEstacionamiento) + 
-                texto + "\nestacionamiento total =";
+                texto + "\nestacionamiento total = "+ this.calcularPrezo()+ "\n";
     }
+    
+    
+    
 
     @Override
     public int hashCode() {
